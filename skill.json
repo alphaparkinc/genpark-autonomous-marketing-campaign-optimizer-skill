@@ -1,0 +1,44 @@
+﻿{
+  "name": "genpark-autonomous-marketing-campaign-optimizer-skill",
+  "version": "1.0.0",
+  "description": "GenPark AI Agent Skill - Autonomous marketing agent for cross-channel ad optimization, real-time budget rebalancing, creative variant generation, and closed-loop campaign orchestration.",
+  "author": "genpark",
+  "category": "autonomous-marketing",
+  "tags": [
+    "autonomous-marketing",
+    "cross-channel-ads",
+    "meta-ads",
+    "google-ads",
+    "tiktok-ads",
+    "mcp-server",
+    "campaign-optimizer",
+    "agentic-commerce"
+  ],
+  "inputs": {
+    "channels": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Target ad channels to audit or optimize (e.g. ['meta', 'google', 'tiktok', 'shopify'])"
+    },
+    "autonomy_level": {
+      "type": "string",
+      "enum": ["observe", "recommend", "act_with_approval", "full_autonomy"],
+      "default": "act_with_approval",
+      "description": "Graduated autonomy level for marketing actions"
+    },
+    "max_budget_shift_pct": {
+      "type": "number",
+      "default": 15.0,
+      "description": "Maximum percentage of daily budget the agent can reallocate in a single decision cycle"
+    }
+  },
+  "outputs": {
+    "audit_report": { "type": "object" },
+    "recommended_actions": { "type": "array" },
+    "executed_actions": { "type": "array" },
+    "creative_variants": { "type": "array" },
+    "activity_log": { "type": "array" }
+  },
+  "entrypoint": "marketing_optimizer_client.py",
+  "example": "example_usage.py"
+}
